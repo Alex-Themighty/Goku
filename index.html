@@ -1819,6 +1819,22 @@
             if (desmosDiv) desmosDiv.style.display = 'none';
         }
     }
+
+    // --- CODE PROTECTION ---
+    // Disable right-click context menu
+    document.addEventListener('contextmenu', event => event.preventDefault());
+
+    // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, and Ctrl+U
+    document.addEventListener('keydown', event => {
+        if (
+            event.key === 'F12' || 
+            (event.ctrlKey && event.shiftKey && (event.key === 'I' || event.key === 'i')) || 
+            (event.ctrlKey && event.shiftKey && (event.key === 'J' || event.key === 'j')) || 
+            (event.ctrlKey && (event.key === 'U' || event.key === 'u'))
+        ) {
+            event.preventDefault();
+        }
+    });
 </script>
 
 </body>
